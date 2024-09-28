@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:website/view/TwitchBot.dart';
 
 class HomeView extends StatefulWidget {
   static const String id = '/';
