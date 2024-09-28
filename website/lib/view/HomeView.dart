@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:website/view/TwitchBot.dart';
 
 class HomeView extends StatefulWidget {
-  static const String id = 'home';
+  static const String id = '/';
 
   const HomeView({super.key});
 
@@ -16,7 +16,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: Row(
         children: [
-          menuButton('Twitch Bot'),
+          menuButton('Twitch Bot', '/twitch'),
           menuButton('Discord Bot'),
           menuButton('Contact')
         ],
@@ -24,12 +24,11 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  SizedBox menuButton(String text) {
+  SizedBox menuButton(String text, [String? route]) {
     return SizedBox(
       child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const TwitchBot()));
+            Navigator.pushNamed(context, route!);
           },
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
