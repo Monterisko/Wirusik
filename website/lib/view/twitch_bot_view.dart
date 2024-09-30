@@ -22,17 +22,6 @@ class _TwitchBotState extends State<TwitchBot> {
   Uri uri = Uri.base;
 
   @override
-  void initState() {
-    String query = Uri.base.query;
-    print('query:$query');
-    if (query != "") {
-      Navigator.pushNamed(context, '/twitch-logged');
-    } else {
-      super.initState();
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
