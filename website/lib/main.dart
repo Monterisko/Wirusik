@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/database.dart';
 import 'package:website/view/home_view.dart';
 import 'package:website/view/twitch_bot_view.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
@@ -9,6 +10,7 @@ import 'router/router_query.dart';
 
 void main() async {
   usePathUrlStrategy();
+  Database.createDatabase();
   await dotenv.load(fileName: ".env");
   runApp(MyApp());
 }
@@ -28,7 +30,9 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeView.id: (context) => const HomeView(),
         TwitchBot.id: (context) => const TwitchBot(),
-        WirusikBotView.id: (context) => const WirusikBotView()
+        WirusikBotView.id: (context) => WirusikBotView(
+              query: "",
+            )
       },
       onGenerateRoute: (settings) => generateRoute(settings, navigatorKey),
     );
