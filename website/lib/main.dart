@@ -28,7 +28,9 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeView.id: (context) => const HomeView(),
         TwitchBot.id: (context) => const TwitchBot(),
-        WirusikBotView.id: (context) => const WirusikBotView()
+        WirusikBotView.id: (context) => WirusikBotView(
+              query: "",
+            )
       },
       onGenerateRoute: (settings) => generateRoute(settings, navigatorKey),
     );

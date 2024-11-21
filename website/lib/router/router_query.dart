@@ -9,7 +9,6 @@ Route<dynamic> generateRoute(
     queryParameters = uriData.queryParameters;
   }
   var message = '$queryParameters';
-  print(message);
   WidgetsBinding.instance.addPostFrameCallback((_) {
     navigatorKey.currentState?.pushReplacementNamed(
       '/twitch-logged',
@@ -18,7 +17,9 @@ Route<dynamic> generateRoute(
   });
   return MaterialPageRoute(
     builder: (context) {
-      return WirusikBotView();
+      return WirusikBotView(
+        query: message,
+      );
     },
     settings: settings,
   );
